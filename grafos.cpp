@@ -33,7 +33,7 @@ Graph* createGraph(int n){
     
     g->matrix = (int **) calloc(n, sizeof(int *));
     
-    for(i=0 ; i<n ; i++){
+    for(i = 0 ; i < n ; i++){
         g->matrix[i] = (int*) calloc(n, sizeof(int));
     }
     
@@ -53,7 +53,7 @@ int n(Graph* g){
 void destructyGraph(Graph* g){
     int i;
     
-    for(i=0 ; i<n(g) ; i++){
+    for(i = 0 ; i < n(g) ; i++){
         free(g->matrix[i]);
     }
     free(g->matrix);
@@ -70,7 +70,7 @@ int e(Graph* g){
 int first(Graph* g, int v){
     int i;
     
-    for(i=0 ; i<n(g) ; i++){
+    for(i = 0 ; i < n(g) ; i++){
         if(g->matrix[v][i] != 0) return i;
     }
     
@@ -81,7 +81,7 @@ int first(Graph* g, int v){
 int next(Graph* g, int v, int w){
     int i;
     
-    for(i=w+1 ; i<n(g) ; i++){
+    for(i = w+1 ; i < n(g) ; i++){
         if(g->matrix[v][i] != 0) return i;
     }
     
@@ -231,7 +231,7 @@ void topoSort(Graph* g, int v){
 void graphTraverse(Graph* g){
     int v;
     
-    for(v=0 ; v<n(g) ; v++){
+    for(v = 0 ; v < n(g) ; v++){
         setMark(g, v, UNVISITED);
     }
     for(v=0 ; v<n(g) ; v++){
@@ -247,8 +247,8 @@ void graphTraverse(Graph* g){
 void printMatriz(Graph* g){
     int i, j;
     
-    for(i=0 ; i<n(g) ; i++){
-        for(j=0 ; j<n(g) ; j++){
+    for(i = 0 ; i < n(g) ; i++){
+        for(j = 0 ; j < n(g) ; j++){
             printf("%d ", g->matrix[i][j]);
         }
         puts("");
@@ -273,7 +273,7 @@ void shortestRoute(Graph* g, int start, int end){
     int v = start;
     queue<int> FILA;
     
-    for(i=0 ; i<n(g) ; i++){
+    for(i = 0 ; i < n(g) ; i++){
         setMark(g, i, UNVISITED);
         pred[i] = -1;
     }
